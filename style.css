@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Hafif morumsu/pembemsi arka plan */
+    background: linear-gradient(135deg, #f0e6ff 0%, #fff0f5 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Taşmaları gizle */
+    position: relative;
+    color: #4a246b; /* Koyu mor yazı rengi */
+}
+
+.main-content {
+    text-align: center;
+    z-index: 10;
+    padding: 30px;
+    border-radius: 15px;
+    /* Hafif şeffaf arka plan */
+    background-color: rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-top: 20px;
+    color: #c71585; /* Kalple uyumlu pembe */
+}
+
+p {
+    font-size: 1.1em;
+    margin-top: 15px;
+    max-width: 400px;
+}
+
+/* ----------------------------------- */
+/* 1. ATAN KALBİN ANİMASYONU           */
+/* ----------------------------------- */
+
+.heart {
+    display: inline-block;
+}
+
+.heart-icon {
+    font-size: 6em;
+    animation: heart-throb 1.2s infinite ease-in-out alternate; /* Kalp atışı animasyonu */
+    display: block; /* Animasyon için block yap */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); /* Hafif ışıltı */
+}
+
+@keyframes heart-throb {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15); /* Hafifçe büyür */
+        filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ----------------------------------- */
+/* 2. ARKA PLAN KAYAN METİN ANİMASYONU */
+/* ----------------------------------- */
+
+.background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Kaydırmak için genişletildi */
+    height: 100%;
+    opacity: 0.15; /* Çok şeffaf yap */
+    color: #c71585;
+    font-size: 3em;
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağla */
+    overflow: hidden; /* Konteynerin dışına taşan kısmı gizle */
+    animation: scroll-text 30s linear infinite;
+    z-index: 1; /* Ana içeriğin arkasında kalmasını sağla */
+    padding-top: 50px; /* Biraz aşağı kaydır */
+}
+
+.background-text span {
+    margin-right: 50px; /* Metinler arasında boşluk */
+    font-weight: bold;
+    display: inline-block;
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Kendi boyutunun yarısı kadar kaydır */
+    }
+}
